@@ -13,6 +13,10 @@ public class RNA {
         if (!rnaSequence.matches("[CGAU]+")) {
             throw new IllegalArgumentException("Invalid RNA sequence");
         }
+
+        if (!rnaSequence.contains("C") || !rnaSequence.contains("G") || !rnaSequence.contains("A") || !rnaSequence.contains("U")) {
+            throw new IllegalArgumentException("RNA sequence is incomplete!");
+        }
     }
 
     public String getSequence() {
