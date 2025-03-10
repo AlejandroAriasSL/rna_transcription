@@ -32,4 +32,15 @@ public class RNATest {
 
         assertThat(exception.getMessage(), is("Invalid RNA sequence"));
     }
+
+    @Test
+    @DisplayName("It should throw an exception if the provided RNA sequence is incomplete")
+    void test_throws_exception_if_RNA_sequence_incomplete() {
+
+        String rnaSequence = "CGA";
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> new RNA(rnaSequence));
+
+        assertThat(exception.getMessage(), is("RNA sequence is incomplete!"));
+    }
 }
