@@ -32,5 +32,16 @@ public class DNATest {
 
         assertThat(exception.getMessage(), is("Invalid DNA sequence"));
     }
+
+    @Test
+    @DisplayName("It should throw an exception if the provided DNA sequence is incomplete")
+    void test_throws_exception_if_DNA_sequence_incomplete() {
+
+        String dnaSequence = "GTA";
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> new DNA(dnaSequence));
+
+        assertThat(exception.getMessage(), is("DNA sequence is incomplete!"));
+    }
     
 }
